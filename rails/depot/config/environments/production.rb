@@ -1,3 +1,11 @@
+#---
+# Excerpted from "Agile Web Development with Rails",
+# published by The Pragmatic Bookshelf.
+# Copyrights apply to this code. It may not be used to create training material, 
+# courses, books, articles, and the like. Contact us if you are in doubt.
+# We make no guarantees that this code is fit for any purpose. 
+# Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
+#---
 Depot::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -77,4 +85,7 @@ Depot::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  require 'active_support/core_ext/numeric/bytes'
+  config.logger = Logger.new(paths['log'].first, 2, 10.megabytes)
 end
